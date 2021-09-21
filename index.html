@@ -80,9 +80,16 @@
   <script>
     function calcular(dato){
       if(dato){
-        const horas = Number(dato)/12
+        let horas = Number(dato)/12
         const precio = horas * 2200
-        return {precio,horas}
+        let minutos = horas*60
+        horas = 0
+        while (minutos > 60){
+          horas ++
+          minutos -= 60
+        }
+        minutos = Math.round(minutos)
+        return {precio,horas,minutos}
       }
       else {
         return {precio:0,horas:0}
@@ -90,7 +97,7 @@
     }
     function calculo(){
       const result = calcular( Number(document.getElementById('dato').value))
-      const resultStr = `Tarda ${result.horas.toFixed(2)}hs y cuesta $${Math.round(result.precio)}`
+      const resultStr = `Tarda ${result.horas}hs${result.minutos}mins y cuesta $${Math.round(result.precio)}`
       document.getElementById('result').innerText = resultStr
     }  
   </script>
