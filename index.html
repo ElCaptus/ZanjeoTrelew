@@ -92,12 +92,12 @@
         return {precio,horas,minutos}
       }
       else {
-        return {precio:0,horas:0}
+        return {precio:0,horas:0,minutos:0}
       }
     }
     function calculo(){
       const result = calcular( Number(document.getElementById('dato').value))
-      const resultStr = `Tarda ${result.horas}hs${result.minutos}mins y cuesta $${Math.round(result.precio)}`
+      const resultStr = `Tarda ${result.horas} hs${result.minutos}mins y cuesta $${Math.round(result.precio)}`
       document.getElementById('result').innerText = resultStr
     }  
   </script>
